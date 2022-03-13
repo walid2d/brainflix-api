@@ -8,6 +8,7 @@ const videosById = function (req, res) {
   if (singularObj) {
     res.status('200').json({
       status: 'Sucess',
+      data: singularObj,
     });
   } else {
     res.status('404').json({
@@ -23,19 +24,25 @@ const sideVideos = function (req, res) {
   });
   res.status('200').json({
     status: 'Success',
-    video: videoArr,
+    data: videoArr,
   });
 };
 //Post
 const newVideo = function (req, res) {
   console.log(req.body);
-  const current = new Date();
+  const random = Math.floor(Math.random() * 9);
+  const current = new Date().valueOf();
   const userInput = {
     id: uuidv4(),
     title: req.body.title,
-    Text: req.body.description,
-    date: current.toLocaleDateString(),
-    time: current.toLocaleTimeString(),
+    description: req.body.description,
+    channel: data[random].channel,
+    duration: data[random].duration,
+    views: data[random].views,
+    likes: data[random].likes,
+    timestamp: current,
+    comments: data[random].comments,
+    image: '/images/image9.jpg',
   };
   data.push(userInput);
   fs.writeFile(
