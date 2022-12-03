@@ -1,1 +1,3 @@
-# walid-rahim-brainflix-api
+# BrainFlix-Api
+
+Api for the BrainFlix project.
